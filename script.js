@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ---- Google Apps Script URL ----
     // HIER DEINE GOOGLE APPS SCRIPT WEB-APP URL EINTRAGEN:
-    const GOOGLE_SCRIPT_URL = 'DEINE_GOOGLE_APPS_SCRIPT_URL_HIER';
+    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxKybsJIUhFS1awxFTckX5uKKJdqBZABdDo91ZHMoI5ISxDUsPSq5KsAgPDMI3LGDnbBw/exec';
 
     // Form Submit
     form.addEventListener('submit', (e) => {
