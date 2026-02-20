@@ -94,9 +94,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // ---- Google Apps Script URL ----
+    // HIER DEINE GOOGLE APPS SCRIPT WEB-APP URL EINTRAGEN:
+    const GOOGLE_SCRIPT_URL = 'DEINE_GOOGLE_APPS_SCRIPT_URL_HIER';
+
     // Form Submit
     form.addEventListener('submit', (e) => {
         e.preventDefault();
+
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalText = submitBtn.innerHTML;
+        submitBtn.innerHTML = '<span class="material-symbols-outlined text-xl animate-spin">progress_activity</span> Wird gesendet...';
+        submitBtn.disabled = true;
 
         const formData = new FormData(form);
         const data = {};
@@ -114,14 +123,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
         console.log('RSVP Submission:', data);
 
-        // TODO: Connect to backend / email service
-        form.style.display = 'none';
-        successEl.classList.add('show');
-
         // Save to localStorage as backup
         const submissions = JSON.parse(localStorage.getItem('rsvp_submissions') || '[]');
         submissions.push({ ...data, timestamp: new Date().toISOString() });
         localStorage.setItem('rsvp_submissions', JSON.stringify(submissions));
+
+        // Send to Google Sheets via Apps Script
+        if (GOOGLE_SCRIPT_URL && GOOGLE_SCRIPT_URL !== 'DEINE_GOOGLE_APPS_SCRIPT_URL_HIER') {
+            fetch(GOOGLE_SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            })
+            .then(() => {
+                form.style.display = 'none';
+                successEl.classList.add('show');
+            })
+            .catch((err) => {
+                console.error('Google Sheets Error:', err);
+                // Trotzdem Erfolg anzeigen (localStorage hat Backup)
+                form.style.display = 'none';
+                successEl.classList.add('show');
+            });
+        } else {
+            // Fallback ohne Google Script URL
+            form.style.display = 'none';
+            successEl.classList.add('show');
+        }
     });
 
     // ---- Parallax on Hero (subtle, desktop only) ----
