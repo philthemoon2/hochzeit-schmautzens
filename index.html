@@ -163,19 +163,19 @@
     </div>
 
     <!-- ==================== HERO ==================== -->
-    <section id="hero" class="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden">
+    <section id="hero" class="relative h-screen min-h-[700px] flex items-end justify-center overflow-hidden pb-28 md:pb-32">
         <div class="absolute inset-0 z-0">
-            <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/15 to-black/45 z-10"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-black/10 to-black/60 z-10"></div>
             <img src="images/hero-couple.jpg" alt="Pauli und Philly" class="w-full h-full object-cover">
         </div>
         <div class="relative z-20 text-center text-white px-4 hero-animate">
             <p class="text-gold-light font-sans text-sm md:text-base tracking-[0.35em] uppercase mb-4 opacity-90">Wir heiraten</p>
-            <h1 class="text-[clamp(3.5rem,10vw,8rem)] font-serif font-light leading-[1.05] mb-4">Pauli &amp; Philly</h1>
+            <h1 class="text-[clamp(3.5rem,10vw,8rem)] font-serif font-light leading-[1.05] mb-4 drop-shadow-[0_2px_12px_rgba(0,0,0,0.5)]">Pauli &amp; Philly</h1>
             <div class="text-gold-light my-4 opacity-80">
                 <svg class="mx-auto" width="80" height="20" viewBox="0 0 80 20"><path d="M0 10 Q20 0 40 10 Q60 20 80 10" fill="none" stroke="currentColor" stroke-width="1"/></svg>
             </div>
-            <p class="font-serif text-2xl md:text-3xl font-light tracking-wider mb-1">21. - 23. August 2026</p>
-            <p class="font-sans text-sm tracking-[0.2em] uppercase opacity-80 mb-12">Kamp-Bornhofen am Rhein</p>
+            <p class="font-serif text-2xl md:text-3xl font-light tracking-wider mb-1 drop-shadow-[0_1px_8px_rgba(0,0,0,0.5)]">21. - 23. August 2026</p>
+            <p class="font-sans text-sm tracking-[0.2em] uppercase opacity-80 mb-12 drop-shadow-[0_1px_6px_rgba(0,0,0,0.5)]">Kamp-Bornhofen am Rhein</p>
             <a href="#rsvp" class="inline-block px-10 py-4 text-xs tracking-[0.2em] uppercase border border-white/50 text-white hover:bg-gold hover:border-gold transition-all no-underline">Zusage geben</a>
         </div>
         <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-3 text-white/60 hero-animate-delay">
@@ -190,10 +190,10 @@
             <span class="material-symbols-outlined text-olive-light text-5xl mb-6 block">local_florist</span>
             <h2 class="text-4xl md:text-5xl font-serif font-light mb-8 leading-tight">Feiert mit uns!</h2>
             <p class="text-lg leading-relaxed text-charcoal-light font-serif italic mb-4">
-                Wir freuen uns riesig, euch zu unserem grossen Fest einladen zu duerfen. Drei Tage voller Liebe, Lachen und unvergesslicher Momente &mdash; am wunderschoenen Rhein, mit Blick auf die Burg Sterrenberg.
+                Wir freuen uns riesig, euch zu unserem großen Fest einladen zu dürfen. Drei Tage voller Liebe, Lachen und unvergesslicher Momente &mdash; am wunderschönen Rhein.
             </p>
             <p class="text-lg leading-relaxed text-charcoal-light font-serif italic">
-                Wir koennen es kaum erwarten, diesen besonderen Anlass mit euch zu teilen.
+                Wir können es kaum erwarten, diesen besonderen Anlass mit euch zu teilen.
             </p>
             <div class="mt-10 h-px w-24 bg-gold mx-auto"></div>
         </div>
@@ -213,10 +213,10 @@
                     <span class="text-gold font-medium tracking-[0.2em] uppercase text-xs mb-4 block">Unsere Geschichte</span>
                     <h3 class="text-3xl md:text-4xl font-serif font-light mb-6 leading-tight">Von Anfang an</h3>
                     <p class="text-charcoal-light leading-relaxed mb-6">
-                        Was als Freundschaft begann, wurde zu einer Liebe, die wir fuer immer festhalten moechten. Gemeinsam haben wir gelacht, getraeumt und die Welt entdeckt &mdash; und jetzt freuen wir uns auf das naechste Kapitel.
+                        Seit 2022 gehen wir gemeinsam durchs Leben. 2025 gaben wir uns in Köln das Ja-Wort, und 2026 möchten wir unsere Liebe mit einer freien Trauung noch einmal krönen.
                     </p>
                     <div class="bg-olive/5 p-5 rounded-lg border-l-4 border-olive">
-                        <p class="italic text-olive font-serif text-xl font-light">&bdquo;Das groesste Glueck ist, den Weg gemeinsam zu gehen.&ldquo;</p>
+                        <p class="italic text-olive font-serif text-xl font-light">&bdquo;Das größte Glück ist, den Weg gemeinsam zu gehen.&ldquo;</p>
                     </div>
                 </div>
             </div>
@@ -245,24 +245,31 @@
                     <h3 class="text-2xl font-serif font-light mb-5">Ankommen &amp; Willkommen</h3>
                     <div class="space-y-4 text-charcoal-light text-sm">
                         <div class="flex gap-3">
+                            <span class="text-gold font-medium whitespace-nowrap mt-0.5 w-16 shrink-0">ab 15:00</span>
+                            <div>
+                                <p class="font-medium text-charcoal">Check-in</p>
+                                <p>Ihr könnt ab 15 Uhr einchecken, aber natürlich auch später.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-3">
                             <span class="text-gold font-medium whitespace-nowrap mt-0.5 w-16 shrink-0">17:00</span>
                             <div>
                                 <p class="font-medium text-charcoal">Welcome Drinks</p>
-                                <p>Stossen wir gemeinsam auf das Wochenende an!</p>
+                                <p>Stoßen wir gemeinsam auf das Wochenende an!</p>
                             </div>
                         </div>
                         <div class="flex gap-3">
                             <span class="text-gold font-medium whitespace-nowrap mt-0.5 w-16 shrink-0">18:00</span>
                             <div>
                                 <p class="font-medium text-charcoal">Abendessen</p>
-                                <p>Gemeinsam essen und den Abend geniessen.</p>
+                                <p>Gemeinsam essen und den Abend genießen.</p>
                             </div>
                         </div>
                         <div class="flex gap-3">
                             <span class="text-gold font-medium whitespace-nowrap mt-0.5 w-16 shrink-0">danach</span>
                             <div>
                                 <p class="font-medium text-charcoal">Abend ausklingen lassen</p>
-                                <p>Gemuetlich beisammen sitzen und den Abend geniessen.</p>
+                                <p>Gemütlich beisammen sitzen und den Abend genießen.</p>
                             </div>
                         </div>
                     </div>
@@ -273,7 +280,7 @@
 
                 <!-- SAMSTAG -->
                 <div class="bg-white p-8 lg:p-10 rounded-xl shadow-sm border-2 border-gold/25 hover:shadow-lg transition-all relative reveal">
-                    <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-gold text-white text-[0.6rem] font-medium px-4 py-1 rounded-full tracking-widest uppercase whitespace-nowrap">Der grosse Tag</div>
+                    <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-gold text-white text-[0.6rem] font-medium px-4 py-1 rounded-full tracking-widest uppercase whitespace-nowrap">Der große Tag</div>
                     <div class="flex items-center gap-3 mb-6">
                         <span class="material-symbols-outlined text-gold text-4xl">church</span>
                         <div>
@@ -285,15 +292,15 @@
                     <div class="space-y-3 text-charcoal-light text-sm">
                         <div class="flex gap-3">
                             <span class="text-gold font-medium whitespace-nowrap mt-0.5 w-20 shrink-0">08-10:00</span>
-                            <p>Fruehstueck</p>
+                            <p>Frühstück</p>
                         </div>
                         <div class="flex gap-3">
                             <span class="text-gold font-medium whitespace-nowrap mt-0.5 w-20 shrink-0">12:00</span>
                             <p>Abfahrt vorm Wagner Hotel (Shuttle oder eigenes Auto)</p>
                         </div>
                         <div class="flex gap-3">
-                            <span class="text-gold font-medium whitespace-nowrap mt-0.5 w-20 shrink-0">13:00</span>
-                            <p>Alle da &mdash; Getraenke, Softdrinks, Wasser, Sekt</p>
+                            <span class="text-gold font-medium whitespace-nowrap mt-0.5 w-20 shrink-0">bis 13:00</span>
+                            <p>Ankunft auf der Burg Sterrenberg &mdash; Getränke, Softdrinks, Wasser, Sekt</p>
                         </div>
                         <div class="flex gap-3 bg-gold/5 -mx-2 px-2 py-1.5 rounded-md">
                             <span class="text-gold font-medium whitespace-nowrap mt-0.5 w-20 shrink-0">14:00</span>
@@ -301,11 +308,15 @@
                         </div>
                         <div class="flex gap-3">
                             <span class="text-gold font-medium whitespace-nowrap mt-0.5 w-20 shrink-0">15:00</span>
-                            <p>Anstossen &mdash; Cremant-Empfang &amp; Orangensaft</p>
+                            <p>Anstoßen &mdash; Crémant-Empfang</p>
                         </div>
                         <div class="flex gap-3">
                             <span class="text-gold font-medium whitespace-nowrap mt-0.5 w-20 shrink-0">danach</span>
-                            <p>Kaffee &amp; Kuchen</p>
+                            <p>Hochzeitstorte wird angeschnitten, dazu gibt es Kaffee</p>
+                        </div>
+                        <div class="flex gap-3">
+                            <span class="text-gold font-medium whitespace-nowrap mt-0.5 w-20 shrink-0"></span>
+                            <p>Zeit für Bilder, relaxen, unterhalten etc.</p>
                         </div>
                         <div class="flex gap-3">
                             <span class="text-gold font-medium whitespace-nowrap mt-0.5 w-20 shrink-0">18:30</span>
@@ -313,7 +324,7 @@
                         </div>
                         <div class="flex gap-3 bg-gold/5 -mx-2 px-2 py-1.5 rounded-md">
                             <span class="text-gold font-medium whitespace-nowrap mt-0.5 w-20 shrink-0">ab 21:00</span>
-                            <p class="font-medium text-charcoal">Brautstrauss werfen, Party &amp; DJ</p>
+                            <p class="font-medium text-charcoal">Brautstrauß werfen, Party &amp; DJ</p>
                         </div>
                         <div class="flex gap-3">
                             <span class="text-gold font-medium whitespace-nowrap mt-0.5 w-20 shrink-0">23:00</span>
@@ -340,7 +351,7 @@
                             <span class="text-gold font-medium whitespace-nowrap mt-0.5 w-16 shrink-0">ab 11:00</span>
                             <div>
                                 <p class="font-medium text-charcoal">Brunch</p>
-                                <p>Gemeinsam fruehstuecken und das Wochenende Revue passieren lassen.</p>
+                                <p>Gemeinsam frühstücken und das Wochenende Revue passieren lassen.</p>
                             </div>
                         </div>
                         <div class="flex gap-3">
@@ -370,7 +381,7 @@
             <div class="text-center mb-16 reveal">
                 <span class="text-gold font-medium tracking-[0.2em] uppercase text-xs mb-4 block">Praktisches</span>
                 <h2 class="text-4xl md:text-5xl font-serif font-light mb-4 leading-tight">Anreise &amp; Unterkunft</h2>
-                <p class="text-charcoal-light">Alles, was ihr wissen muesst.</p>
+                <p class="text-charcoal-light">Alles, was ihr wissen müsst.</p>
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -378,32 +389,40 @@
                     <span class="material-symbols-outlined text-gold text-3xl mb-4 block">train</span>
                     <h3 class="text-xl font-serif font-semibold mb-3">Mit der Bahn</h3>
                     <p class="text-charcoal-light text-sm leading-relaxed">
-                        <strong class="text-charcoal">Koeln &rarr; Koblenz:</strong> Sehr gute Anbindung (ICE, IC, RE).
+                        <strong class="text-charcoal">Köln &rarr; Koblenz:</strong> Sehr gute Anbindung (ICE, IC, RE).
                     </p>
                     <p class="text-charcoal-light text-sm leading-relaxed mt-2">
                         <strong class="text-charcoal">Koblenz &rarr; Kamp-Bornhofen:</strong> Weiterfahrt mit der Regionalbahn (z.B. RB 27).
                     </p>
+                    <a href="https://maps.app.goo.gl/hv8uRmp3qWrnVfp36?g_st=ic" target="_blank" rel="noopener" class="inline-flex items-center gap-1 text-gold font-medium text-sm mt-3 hover:text-gold-dark transition-colors no-underline">
+                        Bahnhof auf Maps <span class="material-symbols-outlined text-sm">open_in_new</span>
+                    </a>
                 </div>
 
                 <div class="bg-ivory p-8 rounded-xl border border-gold/10 hover:shadow-md transition-all reveal">
                     <span class="material-symbols-outlined text-gold text-3xl mb-4 block">directions_car</span>
                     <h3 class="text-xl font-serif font-semibold mb-3">Mit dem Auto</h3>
                     <p class="text-charcoal-light text-sm leading-relaxed">
-                        Parkplaetze befinden sich am Rhein, die Strasse hoch sowie direkt vor dem Hotel.
+                        Parkplätze befinden sich am Rhein, die Straße hoch sowie direkt vor dem Hotel.
                     </p>
-                    <a href="https://maps.google.com/?q=Kamp-Bornhofen" target="_blank" rel="noopener" class="inline-flex items-center gap-1 text-gold font-medium text-sm mt-3 hover:text-gold-dark transition-colors no-underline">
-                        Google Maps <span class="material-symbols-outlined text-sm">open_in_new</span>
-                    </a>
+                    <div class="flex flex-col gap-2 mt-3">
+                        <a href="https://maps.app.goo.gl/9xepxNE9FpKCSh2L7?g_st=ic" target="_blank" rel="noopener" class="inline-flex items-center gap-1 text-gold font-medium text-sm hover:text-gold-dark transition-colors no-underline">
+                            Parkplatz 1 <span class="material-symbols-outlined text-sm">open_in_new</span>
+                        </a>
+                        <a href="https://maps.app.goo.gl/FAf5GJpnu4BEBDNY7?g_st=ic" target="_blank" rel="noopener" class="inline-flex items-center gap-1 text-gold font-medium text-sm hover:text-gold-dark transition-colors no-underline">
+                            Parkplatz 2 <span class="material-symbols-outlined text-sm">open_in_new</span>
+                        </a>
+                    </div>
                 </div>
 
                 <div class="bg-ivory p-8 rounded-xl border border-gold/10 hover:shadow-md transition-all reveal">
                     <span class="material-symbols-outlined text-gold text-3xl mb-4 block">hotel</span>
                     <h3 class="text-xl font-serif font-semibold mb-3">Unterkunft</h3>
                     <p class="text-charcoal-light text-sm leading-relaxed mb-3">
-                        Die Hotelkosten werden vom Brautpaar uebernommen!
+                        Die Hotelkosten werden vom Brautpaar übernommen!
                     </p>
                     <p class="text-olive font-medium text-sm bg-olive/8 px-3 py-2 rounded-lg">
-                        Ihr muesst euch um nichts kuemmern. &hearts;
+                        Ihr müsst euch um nichts kümmern. &hearts;
                     </p>
                 </div>
 
@@ -411,10 +430,10 @@
                     <span class="material-symbols-outlined text-gold text-3xl mb-4 block">airport_shuttle</span>
                     <h3 class="text-xl font-serif font-semibold mb-3">Shuttle &amp; Parken</h3>
                     <p class="text-charcoal-light text-sm leading-relaxed">
-                        Am Samstag faehrt ein Shuttle zur Burg hoch. Ihr koennt auch gerne selbst mit dem Auto hochfahren.
+                        Am Samstag fährt ein Shuttle zur Burg hoch. Ihr könnt auch gerne selbst mit dem Auto hochfahren.
                     </p>
                     <p class="text-charcoal-light text-sm leading-relaxed mt-2">
-                        <strong class="text-charcoal">Parken:</strong> Euer Auto kann oben ueber Nacht stehen bleiben &mdash; der Shuttle faehrt euch zurueck.
+                        <strong class="text-charcoal">Parken:</strong> Euer Auto kann oben über Nacht stehen bleiben &mdash; der Shuttle fährt euch zurück.
                     </p>
                     <p class="text-charcoal-light text-sm leading-relaxed mt-2">
                         Zur Schifffahrt am Sonntag wird gemeinsam gelaufen.
@@ -436,7 +455,7 @@
                 <div class="bg-white p-10 rounded-xl text-center border border-gold/10 hover:shadow-md transition-all reveal">
                     <span class="text-gold font-medium tracking-widest uppercase text-[0.65rem] block mb-3">Freitag</span>
                     <h3 class="text-3xl font-serif font-light mb-3">Casual Chic</h3>
-                    <p class="text-charcoal-light text-sm">Schick, aber entspannt &mdash; fuer einen lockeren Willkommensabend.</p>
+                    <p class="text-charcoal-light text-sm">Schick, aber entspannt &mdash; für einen lockeren Willkommensabend.</p>
                 </div>
                 <div class="bg-white p-10 rounded-xl text-center border-2 border-gold/20 hover:shadow-md transition-all reveal">
                     <span class="text-gold font-medium tracking-widest uppercase text-[0.65rem] block mb-3">Samstag</span>
@@ -444,7 +463,7 @@
                     <div class="grid grid-cols-2 gap-4 text-charcoal-light text-sm">
                         <div>
                             <p class="font-medium text-charcoal text-xs uppercase tracking-widest mb-1">Herren</p>
-                            <p>Dunkle Anzuege</p>
+                            <p>Dunkle Anzüge</p>
                         </div>
                         <div>
                             <p class="font-medium text-charcoal text-xs uppercase tracking-widest mb-1">Damen</p>
@@ -455,15 +474,14 @@
             </div>
 
             <div class="bg-white p-8 rounded-xl text-center border border-red-200/60 reveal">
-                <p class="font-medium text-charcoal mb-4 text-sm">Bitte vermeidet folgende Farben:</p>
-                <div class="flex justify-center gap-3 mb-4">
-                    <span class="color-swatch" style="background:#FFFFFF" title="Weiss"></span>
+                <p class="font-medium text-charcoal mb-4">Bitte vermeidet folgende Farben!</p>
+                <div class="flex justify-center gap-3">
+                    <span class="color-swatch" style="background:#FFFFFF" title="Weiß"></span>
                     <span class="color-swatch" style="background:#F5F5DC" title="Beige"></span>
                     <span class="color-swatch" style="background:#FFFDD0" title="Creme"></span>
                     <span class="color-swatch" style="background:#F7E7CE" title="Champagner"></span>
                     <span class="color-swatch" style="background:#FDFD96" title="Gelb"></span>
                 </div>
-                <p class="text-charcoal-light text-sm italic">Weiss, Beige, Creme, Champagner und Gelb sind der Braut vorbehalten.</p>
             </div>
         </div>
     </section>
@@ -479,18 +497,43 @@
                     </div>
                 </div>
                 <div class="reveal">
-                    <span class="text-gold font-medium tracking-[0.2em] uppercase text-xs mb-4 block">Geschenkwuensche</span>
-                    <h3 class="text-3xl md:text-4xl font-serif font-light mb-6 leading-tight">Eure Grosszuegigkeit</h3>
+                    <span class="text-gold font-medium tracking-[0.2em] uppercase text-xs mb-4 block">Geschenkwünsche</span>
+                    <h3 class="text-3xl md:text-4xl font-serif font-light mb-6 leading-tight">Eure Großzügigkeit</h3>
                     <p class="text-charcoal-light leading-relaxed mb-6">
-                        Die groesste Freude ist natuerlich, dass ihr dabei seid! Wer uns dennoch etwas schenken moechte: Wir freuen uns ueber einen Beitrag fuer unsere gemeinsame Zukunft.
+                        Die größte Freude ist natürlich, dass ihr dabei seid! Wer uns dennoch etwas schenken möchte: Wir freuen uns über einen Beitrag für unsere gemeinsame Zukunft.
                     </p>
                     <div class="bg-gold/5 p-5 rounded-lg border-l-4 border-gold flex items-center gap-4 mb-6">
                         <span class="material-symbols-outlined text-gold text-3xl">redeem</span>
                         <span class="font-serif text-xl font-medium">Geldgeschenke</span>
                     </div>
-                    <p class="text-charcoal-light text-sm italic">
-                        Ausserdem bitten wir euch, dem Personal gerne Trinkgeld zu geben. Es wird zentral gesammelt.
-                    </p>
+                    <div class="bg-olive/5 p-5 rounded-lg border-l-4 border-olive">
+                        <p class="text-charcoal-light text-sm">
+                            <strong class="text-charcoal">Wichtig:</strong> Außerdem bitten wir euch, dem Personal des Hotel Wagners gerne Trinkgeld zu geben. Es wird zentral gesammelt.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== TRAUZEUGEN ==================== -->
+    <section class="py-20 px-6 bg-ivory-warm">
+        <div class="max-w-3xl mx-auto text-center reveal">
+            <span class="text-gold font-medium tracking-[0.2em] uppercase text-xs mb-4 block">Eure Ansprechpartner</span>
+            <h2 class="text-4xl md:text-5xl font-serif font-light mb-8 leading-tight">Trauzeugen</h2>
+            <p class="text-charcoal-light mb-10">Bei Fragen oder wenn ihr etwas planen möchtet &mdash; meldet euch gerne bei unseren Trauzeugen.</p>
+            <div class="grid grid-cols-2 gap-8">
+                <div class="bg-white p-8 rounded-xl border border-gold/10 hover:shadow-md transition-all">
+                    <span class="material-symbols-outlined text-gold text-3xl mb-3 block">person</span>
+                    <h3 class="text-xl font-serif font-semibold mb-2">Trauzeuge</h3>
+                    <p class="text-charcoal-light text-sm">[Name folgt]</p>
+                    <p class="text-gold font-medium text-sm mt-2">[Nummer folgt]</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl border border-gold/10 hover:shadow-md transition-all">
+                    <span class="material-symbols-outlined text-gold text-3xl mb-3 block">person</span>
+                    <h3 class="text-xl font-serif font-semibold mb-2">Trauzeugin</h3>
+                    <p class="text-charcoal-light text-sm">[Name folgt]</p>
+                    <p class="text-gold font-medium text-sm mt-2">[Nummer folgt]</p>
                 </div>
             </div>
         </div>
@@ -540,7 +583,7 @@
             <div class="text-center mb-12 reveal">
                 <span class="text-gold font-medium tracking-[0.2em] uppercase text-xs mb-4 block">Antwort bis 1. Mai 2026</span>
                 <h2 class="text-4xl md:text-5xl font-serif font-light mb-4 leading-tight">Wir freuen uns auf euch!</h2>
-                <p class="text-charcoal-light">Bitte gebt uns Bescheid, ob ihr dabei seid und was wir fuer euch planen duerfen.</p>
+                <p class="text-charcoal-light">Bitte gebt uns Bescheid, ob ihr dabei seid und was wir für euch planen dürfen.</p>
             </div>
 
             <form id="rsvpForm" class="space-y-8 reveal">
@@ -588,14 +631,14 @@
                         </div>
                     </div>
 
-                    <!-- Uebernachtung -->
+                    <!-- Übernachtung -->
                     <div>
-                        <label class="block text-xs font-medium text-charcoal mb-3 tracking-[0.15em] uppercase">Uebernachtung</label>
+                        <label class="block text-xs font-medium text-charcoal mb-3 tracking-[0.15em] uppercase">Übernachtung</label>
                         <div class="grid grid-cols-2 gap-4">
                             <div>
                                 <label for="stayFrom" class="block text-xs text-charcoal-light mb-1">Von</label>
                                 <select id="stayFrom" name="stayFrom" class="w-full rounded-lg border-charcoal/15 bg-ivory focus:ring-gold focus:border-gold text-sm font-light">
-                                    <option value="">-- Waehlen --</option>
+                                    <option value="">-- Wählen --</option>
                                     <option value="freitag">Freitag, 21. Aug</option>
                                     <option value="samstag">Samstag, 22. Aug</option>
                                 </select>
@@ -603,7 +646,7 @@
                             <div>
                                 <label for="stayTo" class="block text-xs text-charcoal-light mb-1">Bis</label>
                                 <select id="stayTo" name="stayTo" class="w-full rounded-lg border-charcoal/15 bg-ivory focus:ring-gold focus:border-gold text-sm font-light">
-                                    <option value="">-- Waehlen --</option>
+                                    <option value="">-- Wählen --</option>
                                     <option value="samstag">Samstag, 22. Aug</option>
                                     <option value="sonntag">Sonntag, 23. Aug</option>
                                 </select>
@@ -648,7 +691,7 @@
                             <option value="allergien">Allergien / Sonstiges</option>
                         </select>
                         <div id="allergiesInput" class="conditional-input">
-                            <input type="text" name="allergies" placeholder="Bitte Allergien/Unvertraeglichkeiten angeben"
+                            <input type="text" name="allergies" placeholder="Bitte Allergien/Unverträglichkeiten angeben"
                                    class="w-full rounded-lg border-charcoal/15 bg-ivory focus:ring-gold focus:border-gold px-4 py-3 text-sm font-light">
                         </div>
                     </div>
