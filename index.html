@@ -138,9 +138,8 @@
                 <a href="#dresscode" class="nav-text text-xs font-medium tracking-[0.2em] uppercase transition-colors duration-500 hover:!text-gold no-underline">Dresscode</a>
                 <a href="#geschenke" class="nav-text text-xs font-medium tracking-[0.2em] uppercase transition-colors duration-500 hover:!text-gold no-underline">Geschenke</a>
             </div>
-            <!-- CTA + Mobile Toggle -->
+            <!-- Mobile Toggle -->
             <div class="flex items-center gap-4">
-                <a href="#rsvp" class="hidden md:inline-flex bg-gold hover:bg-gold-dark text-white px-6 py-2.5 rounded-full text-xs font-medium tracking-[0.2em] uppercase transition-all hover:scale-105 no-underline">RSVP</a>
                 <button id="navToggle" class="md:hidden flex flex-col gap-1.5 p-2" aria-label="Menu">
                     <span class="block w-6 h-0.5 bg-white transition-all nav-bar"></span>
                     <span class="block w-6 h-0.5 bg-white transition-all nav-bar"></span>
@@ -159,7 +158,7 @@
         <a href="#anreise" class="mobile-link text-2xl font-serif text-charcoal hover:text-gold transition-colors no-underline">Anreise</a>
         <a href="#dresscode" class="mobile-link text-2xl font-serif text-charcoal hover:text-gold transition-colors no-underline">Dresscode</a>
         <a href="#geschenke" class="mobile-link text-2xl font-serif text-charcoal hover:text-gold transition-colors no-underline">Geschenke</a>
-        <a href="#rsvp" class="mobile-link bg-gold text-white px-8 py-3 rounded-full text-lg font-medium mt-4 no-underline">RSVP</a>
+        <a href="#rsvp" class="mobile-link text-2xl font-serif text-charcoal hover:text-gold transition-colors no-underline">RSVP</a>
     </div>
 
     <!-- ==================== HERO ==================== -->
@@ -176,7 +175,7 @@
             </div>
             <p class="font-serif text-2xl md:text-3xl font-light tracking-wider mb-1 drop-shadow-[0_1px_8px_rgba(0,0,0,0.5)]">21. - 23. August 2026</p>
             <p class="font-sans text-sm tracking-[0.2em] uppercase opacity-80 mb-12 drop-shadow-[0_1px_6px_rgba(0,0,0,0.5)]">Kamp-Bornhofen am Rhein</p>
-            <a href="#rsvp" class="inline-block px-10 py-4 text-xs tracking-[0.2em] uppercase border border-white/50 text-white hover:bg-gold hover:border-gold transition-all no-underline">Zusage geben</a>
+            <a href="#programm" class="inline-block px-10 py-4 text-xs tracking-[0.2em] uppercase border border-white/50 text-white hover:bg-gold hover:border-gold transition-all no-underline">Mehr erfahren</a>
         </div>
         <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-3 text-white/60 hero-animate-delay">
             <span class="text-[0.65rem] tracking-[0.2em] uppercase">Scroll</span>
@@ -199,6 +198,31 @@
         </div>
     </section>
 
+    <!-- ==================== COUNTDOWN ==================== -->
+    <section class="py-16 px-6 bg-ivory-warm">
+        <div class="max-w-3xl mx-auto text-center reveal">
+            <p class="text-gold font-medium tracking-[0.2em] uppercase text-xs mb-6">Noch</p>
+            <div id="countdown" class="flex justify-center gap-6 md:gap-10">
+                <div class="flex flex-col items-center">
+                    <span id="cd-days" class="text-5xl md:text-6xl font-serif font-light text-charcoal leading-none">---</span>
+                    <span class="text-xs tracking-[0.2em] uppercase text-charcoal-light mt-2">Tage</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span id="cd-hours" class="text-5xl md:text-6xl font-serif font-light text-charcoal leading-none">--</span>
+                    <span class="text-xs tracking-[0.2em] uppercase text-charcoal-light mt-2">Stunden</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span id="cd-minutes" class="text-5xl md:text-6xl font-serif font-light text-charcoal leading-none">--</span>
+                    <span class="text-xs tracking-[0.2em] uppercase text-charcoal-light mt-2">Minuten</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span id="cd-seconds" class="text-5xl md:text-6xl font-serif font-light text-gold leading-none">--</span>
+                    <span class="text-xs tracking-[0.2em] uppercase text-charcoal-light mt-2">Sekunden</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- ==================== UNSERE GESCHICHTE ==================== -->
     <section class="py-28 px-6 overflow-hidden">
         <div class="max-w-7xl mx-auto">
@@ -206,7 +230,7 @@
                 <div class="reveal img-zoom">
                     <div class="relative">
                         <div class="absolute -top-4 -right-4 w-full h-full border-2 border-gold/40 rounded-xl -z-10"></div>
-                        <img src="images/couple-church-steps.jpg" alt="Pauli und Philly" class="rounded-xl shadow-2xl w-full object-cover object-[center_15%]" style="aspect-ratio: 9/14;">
+                        <img src="images/couple-church-steps.jpg" alt="Pauli und Philly" class="rounded-xl shadow-2xl w-full" style="aspect-ratio: auto;">
                     </div>
                 </div>
                 <div class="reveal">
@@ -247,7 +271,7 @@
                         <div class="flex gap-3">
                             <span class="text-gold font-medium whitespace-nowrap mt-0.5 w-16 shrink-0">ab 15:00</span>
                             <div>
-                                <p class="font-medium text-charcoal">Check-in</p>
+                                <p class="font-medium text-charcoal">Check-in im Rheinhotel Wagner</p>
                                 <p>Ihr könnt ab 15 Uhr einchecken, aber natürlich auch später.</p>
                             </div>
                         </div>
@@ -300,7 +324,7 @@
                         </div>
                         <div class="flex gap-3">
                             <span class="text-gold font-medium whitespace-nowrap mt-0.5 w-20 shrink-0">bis 13:00</span>
-                            <p>Ankunft auf der Burg Sterrenberg &mdash; Getränke, Softdrinks, Wasser, Sekt</p>
+                            <p>Ankunft auf der <strong class="text-charcoal">Burg Sterrenberg</strong> (Zu den Burgen 2) &mdash; Getränke, Softdrinks, Wasser, Sekt</p>
                         </div>
                         <div class="flex gap-3 bg-gold/5 -mx-2 px-2 py-1.5 rounded-md">
                             <span class="text-gold font-medium whitespace-nowrap mt-0.5 w-20 shrink-0">14:00</span>
@@ -418,6 +442,10 @@
                 <div class="bg-ivory p-8 rounded-xl border border-gold/10 hover:shadow-md transition-all reveal">
                     <span class="material-symbols-outlined text-gold text-3xl mb-4 block">hotel</span>
                     <h3 class="text-xl font-serif font-semibold mb-3">Unterkunft</h3>
+                    <p class="text-charcoal-light text-sm leading-relaxed mb-2">
+                        <strong class="text-charcoal">Rheinhotel Wagner</strong><br>
+                        Burgenstraße 6, 56341 Kamp-Bornhofen
+                    </p>
                     <p class="text-charcoal-light text-sm leading-relaxed mb-3">
                         Die Hotelkosten werden vom Brautpaar übernommen!
                     </p>
@@ -523,7 +551,7 @@
                     </div>
                     <div class="bg-olive/5 p-5 rounded-lg border-l-4 border-olive">
                         <p class="text-charcoal-light text-sm">
-                            Das Personal vom Hotel Wagner würde sich sehr über ein Trinkgeld freuen &mdash; dafür steht ein Sparschwein zur Verfügung.
+                            Das Personal des Hotel Wagners würde sich sehr über ein Trinkgeld freuen.
                         </p>
                     </div>
                 </div>
@@ -536,7 +564,7 @@
         <div class="max-w-3xl mx-auto text-center reveal">
             <span class="text-gold font-medium tracking-[0.2em] uppercase text-xs mb-4 block">Eure Ansprechpartner</span>
             <h2 class="text-4xl md:text-5xl font-serif font-light mb-8 leading-tight">Trauzeugen</h2>
-            <p class="text-charcoal-light mb-10">Bei Fragen oder wenn ihr etwas planen möchtet &mdash; meldet euch gerne bei unseren Trauzeugen.</p>
+            <p class="text-charcoal-light mb-10">Bei Fragen oder wenn ihr eine Rede halten möchtet &mdash; meldet euch gerne bei unseren Trauzeugen.</p>
             <div class="grid grid-cols-2 gap-8">
                 <div class="bg-white p-8 rounded-xl border border-gold/10 hover:shadow-md transition-all">
                     <span class="material-symbols-outlined text-gold text-3xl mb-3 block">person</span>

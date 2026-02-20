@@ -153,6 +153,41 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // ---- Countdown to Wedding Day ----
+    const weddingDate = new Date('2026-08-21T14:00:00+02:00'); // Zeremonie 14 Uhr
+    const cdDays = document.getElementById('cd-days');
+    const cdHours = document.getElementById('cd-hours');
+    const cdMinutes = document.getElementById('cd-minutes');
+    const cdSeconds = document.getElementById('cd-seconds');
+
+    function updateCountdown() {
+        const now = new Date();
+        const diff = weddingDate - now;
+
+        if (diff <= 0) {
+            cdDays.textContent = '0';
+            cdHours.textContent = '0';
+            cdMinutes.textContent = '0';
+            cdSeconds.textContent = '0';
+            return;
+        }
+
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+        cdDays.textContent = days;
+        cdHours.textContent = String(hours).padStart(2, '0');
+        cdMinutes.textContent = String(minutes).padStart(2, '0');
+        cdSeconds.textContent = String(seconds).padStart(2, '0');
+    }
+
+    if (cdDays) {
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+    }
+
     // ---- Parallax on Hero (subtle, desktop only) ----
     const heroImg = document.querySelector('#hero img');
     if (heroImg && window.innerWidth > 768) {
