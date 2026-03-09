@@ -109,7 +109,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         <option value="normal">Normal</option>
                         <option value="vegetarisch">Vegetarisch</option>
                         <option value="vegan">Vegan</option>
-                        <option value="allergien">Allergien</option>
                     </select>
                 </div>
                 <button type="button" class="remove-person mt-1 text-charcoal/30 hover:text-red-500 transition-colors cursor-pointer bg-transparent border-none p-2"
