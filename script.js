@@ -175,27 +175,28 @@ document.addEventListener('DOMContentLoaded', () => {
         // Collect shared RSVP data
         const formData = new FormData(form);
         const days = formData.getAll('days');
-        const attending = formData.get('attending') || '';
-        const stayFrom = formData.get('stayFrom') || '';
-        const stayTo = formData.get('stayTo') || '';
-        const room = formData.get('room') || '';
-        const children = formData.get('children') || '';
-        const childrenDetails = formData.get('childrenDetails') || '';
-        const allergies = formData.get('allergies') || '';
-        const notes = formData.get('notes') || '';
 
+        // Flache Struktur: jedes Feld = direkt eine Sheet-Spalte
         const data = {
-            persons: persons,
-            attending: attending,
+            name: persons[0].name,           // B: Person 1 Name
+            attending: formData.get('attending') || '',
             days: days,
-            stayFrom: stayFrom,
-            stayTo: stayTo,
-            room: room,
-            children: children,
-            childrenDetails: childrenDetails,
-            allergies: allergies,
-            notes: notes
+            stayFrom: formData.get('stayFrom') || '',
+            stayTo: formData.get('stayTo') || '',
+            room: formData.get('room') || '',
+            children: formData.get('children') || '',
+            childrenDetails: formData.get('childrenDetails') || '',
+            food: persons[0].food,           // J: Person 1 Essen
+            allergies: formData.get('allergies') || '',
+            notes: formData.get('notes') || '',
+            person_count: persons.length
         };
+
+        // Person 2-8 als eigene Felder
+        for (let i = 1; i < persons.length; i++) {
+            data['person_' + (i + 1) + '_name'] = persons[i].name;
+            data['person_' + (i + 1) + '_food'] = persons[i].food;
+        }
 
         console.log('RSVP Submission:', data);
 
