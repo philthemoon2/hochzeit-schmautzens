@@ -69,8 +69,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const attendingRadios = document.querySelectorAll('input[name="attending"]');
     const childrenCheckbox = document.querySelector('input[name="children"]');
     const childrenInput = document.getElementById('childrenInput');
-    const foodSelect = document.getElementById('food');
-    const allergiesInput = document.getElementById('allergiesInput');
     const successEl = document.getElementById('rsvpSuccess');
 
     // Show/hide attending details
@@ -87,15 +85,75 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Show/hide allergies field
-    if (foodSelect) {
-        foodSelect.addEventListener('change', () => {
-            allergiesInput.classList.toggle('show', foodSelect.value === 'allergien');
+    // ---- Dynamic Person Fields ----
+    let personCount = 1;
+    const personenList = document.getElementById('personenList');
+    const addPersonBtn = document.getElementById('addPersonBtn');
+
+    if (addPersonBtn) {
+        addPersonBtn.addEventListener('click', () => {
+            if (personCount >= 8) return; // max 8 Personen
+            const idx = personCount;
+            personCount++;
+
+            const entry = document.createElement('div');
+            entry.className = 'person-entry flex gap-3 items-start';
+            entry.dataset.person = idx;
+            entry.innerHTML = `
+                <div class="flex-1">
+                    <input type="text" name="person_name_${idx}" required placeholder="Vor- und Nachname"
+                           class="w-full rounded-lg border-charcoal/15 bg-ivory focus:ring-gold focus:border-gold px-4 py-3 text-sm font-light">
+                </div>
+                <div class="w-40">
+                    <select name="person_food_${idx}" class="w-full rounded-lg border-charcoal/15 bg-ivory focus:ring-gold focus:border-gold text-sm font-light py-3">
+                        <option value="normal">Normal</option>
+                        <option value="vegetarisch">Vegetarisch</option>
+                        <option value="vegan">Vegan</option>
+                        <option value="allergien">Allergien</option>
+                    </select>
+                </div>
+                <button type="button" class="remove-person mt-1 text-charcoal/30 hover:text-red-500 transition-colors cursor-pointer bg-transparent border-none p-2"
+                        title="Person entfernen">
+                    <span class="material-symbols-outlined text-lg">close</span>
+                </button>
+            `;
+
+            entry.querySelector('.remove-person').addEventListener('click', () => {
+                entry.remove();
+                personCount--;
+                // Re-enable button if we were at max
+                if (personCount < 8) addPersonBtn.style.display = '';
+            });
+
+            personenList.appendChild(entry);
+
+            // Focus the new name field
+            entry.querySelector('input[type="text"]').focus();
+
+            // Hide button at max
+            if (personCount >= 8) addPersonBtn.style.display = 'none';
         });
     }
 
+    // ---- Collect all persons from form ----
+    function collectPersons() {
+        const persons = [];
+        const entries = personenList.querySelectorAll('.person-entry');
+        entries.forEach(entry => {
+            const idx = entry.dataset.person;
+            const nameEl = entry.querySelector(`[name="person_name_${idx}"]`);
+            const foodEl = entry.querySelector(`[name="person_food_${idx}"]`);
+            if (nameEl && nameEl.value.trim()) {
+                persons.push({
+                    name: nameEl.value.trim(),
+                    food: foodEl ? foodEl.value : 'normal'
+                });
+            }
+        });
+        return persons;
+    }
+
     // ---- Google Apps Script URL ----
-    // HIER DEINE GOOGLE APPS SCRIPT WEB-APP URL EINTRAGEN:
     const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxKybsJIUhFS1awxFTckX5uKKJdqBZABdDo91ZHMoI5ISxDUsPSq5KsAgPDMI3LGDnbBw/exec';
 
     // Form Submit
@@ -107,19 +165,38 @@ document.addEventListener('DOMContentLoaded', () => {
         submitBtn.innerHTML = '<span class="material-symbols-outlined text-xl animate-spin">progress_activity</span> Wird gesendet...';
         submitBtn.disabled = true;
 
+        // Collect persons
+        const persons = collectPersons();
+        if (persons.length === 0) {
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+            return;
+        }
+
+        // Collect shared RSVP data
         const formData = new FormData(form);
-        const data = {};
-        formData.forEach((value, key) => {
-            if (data[key]) {
-                if (Array.isArray(data[key])) {
-                    data[key].push(value);
-                } else {
-                    data[key] = [data[key], value];
-                }
-            } else {
-                data[key] = value;
-            }
-        });
+        const days = formData.getAll('days');
+        const attending = formData.get('attending') || '';
+        const stayFrom = formData.get('stayFrom') || '';
+        const stayTo = formData.get('stayTo') || '';
+        const room = formData.get('room') || '';
+        const children = formData.get('children') || '';
+        const childrenDetails = formData.get('childrenDetails') || '';
+        const allergies = formData.get('allergies') || '';
+        const notes = formData.get('notes') || '';
+
+        const data = {
+            persons: persons,
+            attending: attending,
+            days: days,
+            stayFrom: stayFrom,
+            stayTo: stayTo,
+            room: room,
+            children: children,
+            childrenDetails: childrenDetails,
+            allergies: allergies,
+            notes: notes
+        };
 
         console.log('RSVP Submission:', data);
 
@@ -147,7 +224,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 successEl.classList.add('show');
             });
         } else {
-            // Fallback ohne Google Script URL
             form.style.display = 'none';
             successEl.classList.add('show');
         }

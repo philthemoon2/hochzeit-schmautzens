@@ -648,11 +648,30 @@
             </div>
 
             <form id="rsvpForm" class="space-y-8 reveal">
-                <!-- Name -->
-                <div>
-                    <label for="name" class="block text-xs font-medium text-charcoal mb-2 tracking-[0.15em] uppercase">Euer Name *</label>
-                    <input type="text" id="name" name="name" required placeholder="Vor- und Nachname"
-                           class="w-full rounded-lg border-charcoal/15 bg-ivory focus:ring-gold focus:border-gold px-4 py-3 text-sm font-light">
+                <!-- Personen -->
+                <div id="personenSection">
+                    <label class="block text-xs font-medium text-charcoal mb-3 tracking-[0.15em] uppercase">Wer kommt? *</label>
+                    <div id="personenList" class="space-y-3">
+                        <div class="person-entry flex gap-3 items-start" data-person="0">
+                            <div class="flex-1">
+                                <input type="text" name="person_name_0" required placeholder="Vor- und Nachname"
+                                       class="w-full rounded-lg border-charcoal/15 bg-ivory focus:ring-gold focus:border-gold px-4 py-3 text-sm font-light">
+                            </div>
+                            <div class="w-40">
+                                <select name="person_food_0" class="w-full rounded-lg border-charcoal/15 bg-ivory focus:ring-gold focus:border-gold text-sm font-light py-3">
+                                    <option value="normal">Normal</option>
+                                    <option value="vegetarisch">Vegetarisch</option>
+                                    <option value="vegan">Vegan</option>
+                                    <option value="allergien">Allergien</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" id="addPersonBtn"
+                            class="mt-3 flex items-center gap-2 text-gold hover:text-gold-dark transition-colors text-sm font-medium cursor-pointer bg-transparent border-none">
+                        <span class="material-symbols-outlined text-lg">person_add</span>
+                        Person hinzufügen
+                    </button>
                 </div>
 
                 <!-- Zusage -->
@@ -742,14 +761,11 @@
                         </div>
                     </div>
 
-                    <!-- Essen -->
+                    <!-- Allergien / Unvertraeglichkeiten -->
                     <div>
-                        <label for="food" class="block text-xs font-medium text-charcoal mb-2 tracking-[0.15em] uppercase">Essen</label>
-                        <select id="food" name="food" class="w-full rounded-lg border-charcoal/15 bg-ivory focus:ring-gold focus:border-gold text-sm font-light">
-                            <option value="normal">Normal (alles)</option>
-                            <option value="vegetarisch">Vegetarisch</option>
-                            <option value="vegan">Vegan</option>
-                        </select>
+                        <label for="allergies" class="block text-xs font-medium text-charcoal mb-2 tracking-[0.15em] uppercase">Allergien / Unverträglichkeiten</label>
+                        <input type="text" id="allergies" name="allergies" placeholder="Falls zutreffend, z.B. Laktose, Gluten..."
+                               class="w-full rounded-lg border-charcoal/15 bg-ivory focus:ring-gold focus:border-gold px-4 py-3 text-sm font-light">
                     </div>
 
                     <!-- Anmerkungen -->
