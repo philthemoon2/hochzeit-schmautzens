@@ -153,7 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ---- Google Apps Script URL ----
-    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxKybsJIUhFS1awxFTckX5uKKJdqBZABdDo91ZHMoI5ISxDUsPSq5KsAgPDMI3LGDnbBw/exec';
+    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxRDzphJtNcHjgKsmtBUNCv9EFnQWnZnjBYCPNxhGEBm9CpdniRpoGEUJKs0M5TFn5bEQ/exec';
 
     // Form Submit
     form.addEventListener('submit', (e) => {
