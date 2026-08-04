@@ -63,171 +63,58 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // ---- RSVP Form Logic ----
-    const form = document.getElementById('rsvpForm');
-    const attendingDetails = document.getElementById('attendingDetails');
-    const attendingRadios = document.querySelectorAll('input[name="attending"]');
-    const childrenCheckbox = document.querySelector('input[name="children"]');
-    const childrenInput = document.getElementById('childrenInput');
-    const successEl = document.getElementById('rsvpSuccess');
-
-    // Show/hide attending details
-    attendingRadios.forEach(radio => {
-        radio.addEventListener('change', () => {
-            attendingDetails.classList.toggle('show', radio.value === 'ja' && radio.checked);
-        });
-    });
-
-    // Show/hide children details
-    if (childrenCheckbox) {
-        childrenCheckbox.addEventListener('change', () => {
-            childrenInput.classList.toggle('show', childrenCheckbox.checked);
-        });
-    }
-
-    // ---- Dynamic Person Fields ----
-    let personCount = 1;
-    const personenList = document.getElementById('personenList');
-    const addPersonBtn = document.getElementById('addPersonBtn');
-
-    if (addPersonBtn) {
-        addPersonBtn.addEventListener('click', () => {
-            if (personCount >= 8) return; // max 8 Personen
-            const idx = personCount;
-            personCount++;
-
-            const entry = document.createElement('div');
-            entry.className = 'person-entry flex gap-3 items-start';
-            entry.dataset.person = idx;
-            entry.innerHTML = `
-                <div class="flex-1">
-                    <input type="text" name="person_name_${idx}" required placeholder="Vor- und Nachname"
-                           class="w-full rounded-lg border-charcoal/15 bg-ivory focus:ring-gold focus:border-gold px-4 py-3 text-sm font-light">
-                </div>
-                <div class="w-40">
-                    <select name="person_food_${idx}" class="w-full rounded-lg border-charcoal/15 bg-ivory focus:ring-gold focus:border-gold text-sm font-light py-3">
-                        <option value="normal">Normal</option>
-                        <option value="vegetarisch">Vegetarisch</option>
-                        <option value="vegan">Vegan</option>
-                    </select>
-                </div>
-                <button type="button" class="remove-person mt-1 text-charcoal/30 hover:text-red-500 transition-colors cursor-pointer bg-transparent border-none p-2"
-                        title="Person entfernen">
-                    <span class="material-symbols-outlined text-lg">close</span>
-                </button>
-            `;
-
-            entry.querySelector('.remove-person').addEventListener('click', () => {
-                entry.remove();
-                personCount--;
-                // Re-enable button if we were at max
-                if (personCount < 8) addPersonBtn.style.display = '';
-            });
-
-            personenList.appendChild(entry);
-
-            // Focus the new name field
-            entry.querySelector('input[type="text"]').focus();
-
-            // Hide button at max
-            if (personCount >= 8) addPersonBtn.style.display = 'none';
-        });
-    }
-
-    // ---- Collect all persons from form ----
-    function collectPersons() {
-        const persons = [];
-        const entries = personenList.querySelectorAll('.person-entry');
-        entries.forEach(entry => {
-            const idx = entry.dataset.person;
-            const nameEl = entry.querySelector(`[name="person_name_${idx}"]`);
-            const foodEl = entry.querySelector(`[name="person_food_${idx}"]`);
-            if (nameEl && nameEl.value.trim()) {
-                persons.push({
-                    name: nameEl.value.trim(),
-                    food: foodEl ? foodEl.value : 'normal'
-                });
-            }
-        });
-        return persons;
-    }
-
     // ---- Google Apps Script URL ----
-    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx4SZZKRm6-PKo8VgxtYz5kZpoNwHerhfrtXmD_CnKjLyAvIkLzW7sB89V-C8kX03hxVw/exec';
+    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyEjAklRiy51LeyQx1ELQryWByCDUM3dotTLKxYgVx22WpKOBe_DedJCwxOcgIQzoHG8A/exec';
 
-    // Form Submit
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
+    // ---- Absage Form ----
+    const absageForm = document.getElementById('absageForm');
+    const absageSuccess = document.getElementById('absageSuccess');
 
-        const submitBtn = form.querySelector('button[type="submit"]');
-        const originalText = submitBtn.innerHTML;
-        submitBtn.innerHTML = '<span class="material-symbols-outlined text-xl animate-spin">progress_activity</span> Wird gesendet...';
-        submitBtn.disabled = true;
+    if (absageForm) {
+        absageForm.addEventListener('submit', (e) => {
+            e.preventDefault();
 
-        // Collect persons
-        const persons = collectPersons();
-        if (persons.length === 0) {
-            submitBtn.innerHTML = originalText;
-            submitBtn.disabled = false;
-            return;
-        }
+            const submitBtn = absageForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
 
-        // Collect shared RSVP data
-        const formData = new FormData(form);
-        const days = formData.getAll('days');
+            const formData = new FormData(absageForm);
+            const data = {
+                type: 'absage',
+                name: (formData.get('absageName') || '').trim(),
+                email: (formData.get('absageEmail') || '').trim(),
+                message: (formData.get('absageMessage') || '').trim()
+            };
 
-        // Flache Struktur: jedes Feld = direkt eine Sheet-Spalte
-        const data = {
-            name: persons[0].name,           // B: Person 1 Name
-            attending: formData.get('attending') || '',
-            days: days,
-            stayFrom: formData.get('stayFrom') || '',
-            stayTo: formData.get('stayTo') || '',
-            room: formData.get('room') || '',
-            children: formData.get('children') || '',
-            childrenDetails: formData.get('childrenDetails') || '',
-            food: persons[0].food,           // J: Person 1 Essen
-            allergies: formData.get('allergies') || '',
-            notes: formData.get('notes') || '',
-            person_count: persons.length
-        };
+            if (!data.name || !data.email) return;
 
-        // Person 2-8 als eigene Felder
-        for (let i = 1; i < persons.length; i++) {
-            data['person_' + (i + 1) + '_name'] = persons[i].name;
-            data['person_' + (i + 1) + '_food'] = persons[i].food;
-        }
+            submitBtn.innerHTML = '<span class="material-symbols-outlined text-xl animate-spin">progress_activity</span> Wird gesendet...';
+            submitBtn.disabled = true;
 
-        console.log('RSVP Submission:', data);
+            // Backup im Browser, falls der Versand scheitert
+            const absagen = JSON.parse(localStorage.getItem('absage_submissions') || '[]');
+            absagen.push({ ...data, timestamp: new Date().toISOString() });
+            localStorage.setItem('absage_submissions', JSON.stringify(absagen));
 
-        // Save to localStorage as backup
-        const submissions = JSON.parse(localStorage.getItem('rsvp_submissions') || '[]');
-        submissions.push({ ...data, timestamp: new Date().toISOString() });
-        localStorage.setItem('rsvp_submissions', JSON.stringify(submissions));
+            const showSuccess = () => {
+                absageForm.style.display = 'none';
+                absageSuccess.classList.add('show');
+            };
 
-        // Send to Google Sheets via Apps Script
-        if (GOOGLE_SCRIPT_URL && GOOGLE_SCRIPT_URL !== 'DEINE_GOOGLE_APPS_SCRIPT_URL_HIER') {
             fetch(GOOGLE_SCRIPT_URL, {
                 method: 'POST',
                 mode: 'no-cors',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data)
             })
-            .then(() => {
-                form.style.display = 'none';
-                successEl.classList.add('show');
-            })
+            .then(showSuccess)
             .catch((err) => {
-                console.error('Google Sheets Error:', err);
-                // Trotzdem Erfolg anzeigen (localStorage hat Backup)
-                form.style.display = 'none';
-                successEl.classList.add('show');
+                console.error('Absage konnte nicht gesendet werden:', err);
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+                alert('Das hat leider nicht geklappt. Bitte schreibt uns kurz direkt an info@phil-thebeat.com.');
             });
-        } else {
-            form.style.display = 'none';
-            successEl.classList.add('show');
-        }
-    });
+        });
+    }
 
     // ---- Countdown to Wedding Day ----
     const weddingDate = new Date('2026-08-21T14:00:00+02:00'); // Zeremonie 14 Uhr

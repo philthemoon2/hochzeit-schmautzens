@@ -1,14 +1,23 @@
 // ============================================
-// HOCHZEIT RSVP — Google Apps Script v2
+// HOCHZEIT RSVP - Google Apps Script v2
 // ============================================
 // Google Sheets > Erweiterungen > Apps Script
 // Code einfuegen > Speichern > Bereitstellen > Neue Bereitstellung > Web-App
 // Ausfuehren als: Ich | Zugriff: Jeder
 
+var ABSAGEN_TAB = 'Absagen';
+
 function doPost(e) {
   try {
-    var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+    var ss = SpreadsheetApp.getActiveSpreadsheet();
     var data = JSON.parse(e.postData.contents);
+
+    // ---- Absagen landen im eigenen Tab ----
+    if (data.type === 'absage') {
+      return handleAbsage(ss, data);
+    }
+
+    var sheet = ss.getSheetByName('Tabellenblatt1') || ss.getActiveSheet();
 
     // Headers ergaenzen falls Spalte M leer
     if (!sheet.getRange(1, 13).getValue()) {
@@ -55,16 +64,21 @@ function doPost(e) {
       if (data['person_' + j + '_name']) names += ', ' + data['person_' + j + '_name'];
     }
 
-    var body = 'Neue RSVP:\n\n';
-    body += 'Name(n): ' + names + '\n';
-    body += 'Zusage: ' + (data.attending || '-') + '\n';
-    body += 'Tage: ' + (tage || '-') + '\n';
-    body += 'Zimmer: ' + (data.room || '-') + '\n';
-    body += 'Essen: ' + (data.food || '-');
+    var body = 'Neue Hochzeits-RSVP\n';
+    body += '========================\n\n';
+    body += 'Zusage: ' + (data.attending || '-') + '\n\n';
+    body += 'Personen & Essen:\n';
+    body += '  1. ' + (data.name || '-') + ' - ' + (data.food || '-') + '\n';
     for (var k = 2; k <= 8; k++) {
-      if (data['person_' + k + '_name']) body += ', ' + data['person_' + k + '_name'] + ': ' + (data['person_' + k + '_food'] || 'normal');
+      if (data['person_' + k + '_name']) {
+        body += '  ' + k + '. ' + data['person_' + k + '_name'] + ' - ' + (data['person_' + k + '_food'] || 'normal') + '\n';
+      }
     }
-    body += '\n';
+    body += '\nTage: ' + (tage || '-') + '\n';
+    body += 'Uebernachtung: ' + (data.stayFrom || '-') + ' bis ' + (data.stayTo || '-') + '\n';
+    body += 'Zimmer: ' + (data.room || '-') + '\n';
+    if (data.children) body += 'Kinder: ja - ' + (data.childrenDetails || '') + '\n';
+    if (data.allergies) body += 'Allergien: ' + data.allergies + '\n';
     if (data.notes) body += 'Anmerkungen: ' + data.notes + '\n';
 
     MailApp.sendEmail('info@phil-thebeat.com', 'RSVP: ' + names, body);
@@ -73,6 +87,46 @@ function doPost(e) {
   } catch (error) {
     return ContentService.createTextOutput(JSON.stringify({result:'error',error:error.toString()})).setMimeType(ContentService.MimeType.JSON);
   }
+}
+
+// ============================================
+// ABSAGEN - eigener Tab "Absagen" im selben Sheet
+// ============================================
+function handleAbsage(ss, data) {
+  var sheet = ss.getSheetByName(ABSAGEN_TAB);
+
+  // Tab anlegen falls noch nicht vorhanden
+  if (!sheet) {
+    sheet = ss.insertSheet(ABSAGEN_TAB);
+  }
+
+  // Header setzen falls Zeile 1 leer
+  if (!sheet.getRange(1, 1).getValue()) {
+    var header = ['Zeitstempel', 'Name', 'E-Mail', 'Nachricht'];
+    sheet.getRange(1, 1, 1, header.length).setValues([header]);
+    sheet.getRange(1, 1, 1, header.length).setFontWeight('bold').setBackground('#f3e8d0');
+    sheet.setColumnWidth(1, 160);
+    sheet.setColumnWidth(2, 200);
+    sheet.setColumnWidth(3, 240);
+    sheet.setColumnWidth(4, 400);
+  }
+
+  sheet.appendRow([
+    new Date().toLocaleString('de-DE', {timeZone: 'Europe/Berlin'}),
+    data.name || '',
+    data.email || '',
+    data.message || ''
+  ]);
+
+  var body = 'Neue Hochzeits-ABSAGE\n';
+  body += '========================\n\n';
+  body += 'Name:    ' + (data.name || '-') + '\n';
+  body += 'E-Mail:  ' + (data.email || '-') + '\n';
+  if (data.message) body += '\nNachricht:\n' + data.message + '\n';
+
+  MailApp.sendEmail('info@phil-thebeat.com', 'ABSAGE: ' + (data.name || 'ohne Namen'), body);
+
+  return ContentService.createTextOutput(JSON.stringify({result:'success'})).setMimeType(ContentService.MimeType.JSON);
 }
 
 function doGet(e) {

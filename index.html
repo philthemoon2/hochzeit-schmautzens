@@ -112,6 +112,13 @@
             height: 1.5px; background: #c0392b; transform: rotate(-45deg);
         }
 
+        /* Erwuenschte Farben — gleiche Groesse, ohne Durchstrich */
+        .color-swatch-ok {
+            width: 2.5rem; height: 2.5rem; border-radius: 50%;
+            border: 2px solid rgba(0,0,0,0.08); display: inline-block; position: relative;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.14);
+        }
+
         /* Image hover zoom */
         .img-zoom { overflow: hidden; }
         .img-zoom img { transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
@@ -158,7 +165,7 @@
         <a href="#anreise" class="mobile-link text-2xl font-serif text-charcoal hover:text-gold transition-colors no-underline">Anreise</a>
         <a href="#dresscode" class="mobile-link text-2xl font-serif text-charcoal hover:text-gold transition-colors no-underline">Dresscode</a>
         <a href="#geschenke" class="mobile-link text-2xl font-serif text-charcoal hover:text-gold transition-colors no-underline">Geschenke</a>
-        <a href="#rsvp" class="mobile-link text-2xl font-serif text-charcoal hover:text-gold transition-colors no-underline">RSVP</a>
+        <a href="#absage" class="mobile-link text-2xl font-serif text-charcoal hover:text-gold transition-colors no-underline">Absage</a>
     </div>
 
     <!-- ==================== HERO ==================== -->
@@ -175,7 +182,7 @@
             </div>
             <p class="font-serif text-2xl md:text-3xl font-light tracking-wider mb-1 drop-shadow-[0_1px_8px_rgba(0,0,0,0.5)]">21. - 23. August 2026</p>
             <p class="font-sans text-sm tracking-[0.2em] uppercase opacity-80 mb-12 drop-shadow-[0_1px_6px_rgba(0,0,0,0.5)]">Kamp-Bornhofen am Rhein</p>
-            <a href="#programm" class="inline-block px-10 py-4 text-xs tracking-[0.2em] uppercase border border-white/50 text-white hover:bg-gold hover:border-gold transition-all no-underline">Mehr erfahren</a>
+            <a href="#programm" class="inline-block px-10 py-4 text-xs tracking-[0.2em] uppercase border border-white/50 text-white hover:bg-gold hover:border-gold transition-all no-underline">Alle Infos</a>
         </div>
         <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-3 text-white/60 hero-animate-delay">
             <span class="text-[0.65rem] tracking-[0.2em] uppercase">Scroll</span>
@@ -187,12 +194,12 @@
     <section class="py-28 px-6 bg-white">
         <div class="max-w-3xl mx-auto text-center reveal">
             <span class="material-symbols-outlined text-olive-light text-5xl mb-6 block">local_florist</span>
-            <h2 class="text-4xl md:text-5xl font-serif font-light mb-8 leading-tight">Feiert mit uns!</h2>
+            <h2 class="text-4xl md:text-5xl font-serif font-light mb-8 leading-tight">Alle wichtigen Infos</h2>
             <p class="text-lg leading-relaxed text-charcoal-light font-serif italic mb-4">
-                Wir freuen uns riesig, euch zu unserem großen Fest einladen zu dürfen. Drei Tage voller Liebe, Lachen und unvergesslicher Momente &mdash; am wunderschönen Rhein.
+                Es ist bald so weit &mdash; in wenigen Tagen feiern wir gemeinsam mit euch am Rhein. Damit ihr entspannt ankommt, findet ihr hier alles Wichtige auf einen Blick.
             </p>
             <p class="text-lg leading-relaxed text-charcoal-light font-serif italic">
-                Wir können es kaum erwarten, diesen besonderen Anlass mit euch zu teilen.
+                Programm, Anreise, Unterkunft und Dresscode &mdash; wir können es kaum erwarten, diese Tage mit euch zu teilen.
             </p>
             <div class="mt-10 h-px w-24 bg-gold mx-auto"></div>
         </div>
@@ -218,27 +225,6 @@
                 <div class="flex flex-col items-center">
                     <span id="cd-seconds" class="text-5xl md:text-6xl font-serif font-light text-gold leading-none">--</span>
                     <span class="text-xs tracking-[0.2em] uppercase text-charcoal-light mt-2">Sekunden</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== UNSERE GESCHICHTE ==================== -->
-    <section class="py-28 px-6">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
-                <div class="reveal">
-                    <img src="images/couple-church-steps.jpg" alt="Pauli und Philly" class="rounded-xl shadow-2xl w-full">
-                </div>
-                <div class="reveal">
-                    <span class="text-gold font-medium tracking-[0.2em] uppercase text-xs mb-4 block">Unsere Geschichte</span>
-                    <h3 class="text-3xl md:text-4xl font-serif font-light mb-6 leading-tight">Von Anfang an</h3>
-                    <p class="text-charcoal-light leading-relaxed mb-6">
-                        Seit 2022 gehen wir gemeinsam durchs Leben. 2025 gaben wir uns in Köln das Ja-Wort, und 2026 möchten wir unsere Liebe mit einer freien Trauung noch einmal krönen.
-                    </p>
-                    <div class="bg-olive/5 p-5 rounded-lg border-l-4 border-olive">
-                        <p class="italic text-olive font-serif text-xl font-light">&bdquo;Das größte Glück ist, den Weg gemeinsam zu gehen.&ldquo;</p>
-                    </div>
                 </div>
             </div>
         </div>
@@ -394,11 +380,6 @@
         </div>
     </section>
 
-    <!-- Full-width Photo Divider -->
-    <div class="w-full h-[35vh] md:h-[65vh] overflow-hidden reveal">
-        <img src="images/couple-walking.jpg" alt="Pauli und Philly" class="w-full h-full object-cover object-[center_10%] md:object-[center_20%]">
-    </div>
-
     <!-- ==================== ANREISE & UNTERKUNFT ==================== -->
     <section id="anreise" class="py-28 px-6 bg-white">
         <div class="max-w-7xl mx-auto">
@@ -421,13 +402,14 @@
                             Aufgrund von Bahnarbeiten fährt der Zug nicht wie gewohnt von Koblenz nach Kamp-Bornhofen.
                         </p>
                         <p class="text-charcoal-light text-sm leading-relaxed mt-2">
-                            <strong class="text-charcoal">Alternative:</strong> Koblenz &rarr; Boppard mit dem Zug, dann mit der Fähre übersetzen, dann Taxi rufen.
+                            <strong class="text-charcoal">Alternative:</strong> Weiterfahrt mit dem Bus <strong class="text-charcoal">10X</strong> Richtung Wiesbaden Hauptbahnhof.
+                        </p>
+                        <p class="text-charcoal-light text-sm leading-relaxed mt-1">
+                            Ausstieg: <strong class="text-charcoal">Rathaus, Kamp-Bornhofen</strong><br>
+                            Fahrtzeit ca. 33 Minuten
                         </p>
                     </div>
                     <div class="flex flex-col gap-2 mt-3">
-                        <a href="http://www.faehre-boppard.de/richtzeiten/" target="_blank" rel="noopener" class="inline-flex items-center gap-1 text-gold font-medium text-sm hover:text-gold-dark transition-colors no-underline">
-                            Fähre Boppard &mdash; Abfahrtzeiten <span class="material-symbols-outlined text-sm">open_in_new</span>
-                        </a>
                         <a href="https://share.google/KiJvJj1sZDv45zX2c" target="_blank" rel="noopener" class="inline-flex items-center gap-1 text-gold font-medium text-sm hover:text-gold-dark transition-colors no-underline">
                             Taxi bestellen <span class="material-symbols-outlined text-sm">open_in_new</span>
                         </a>
@@ -512,28 +494,109 @@
                 </div>
             </div>
 
-            <div class="bg-white p-8 rounded-xl text-center border border-red-200/60 reveal">
-                <p class="font-medium text-charcoal mb-4">Bitte vermeidet folgende Farben!</p>
-                <div class="flex justify-center gap-4 mb-4">
-                    <div class="flex flex-col items-center gap-1">
+            <!-- HINWEIS: Farbregeln gelten NUR fuer Samstag -->
+            <div class="text-center mb-8 reveal">
+                <span class="inline-flex items-center gap-2 bg-gold text-white rounded-full px-6 py-2.5 text-xs tracking-[0.2em] uppercase font-medium shadow-sm">
+                    <span class="material-symbols-outlined text-base">event</span>
+                    Farbregeln nur für Samstag
+                </span>
+                <p class="text-charcoal-light text-sm mt-4 max-w-lg mx-auto">
+                    Die folgenden Farbwünsche gelten <strong class="text-charcoal">ausschließlich für die Feier am Samstag</strong>. Am Freitag und Sonntag zieht bitte einfach an, worin ihr euch wohlfühlt.
+                </p>
+            </div>
+
+            <!-- ERWÜNSCHTE FARBEN -->
+            <div class="bg-white p-8 rounded-xl border border-olive/30 mb-6 reveal">
+                <div class="flex items-center justify-center gap-2 mb-2">
+                    <span class="material-symbols-outlined text-olive text-2xl">check_circle</span>
+                    <p class="font-medium text-charcoal text-lg">Am Samstag freuen uns diese Farben</p>
+                </div>
+                <p class="text-charcoal-light text-sm text-center mb-6">Herren: bitte dunkle Töne &mdash; alles Dunkle ist willkommen.</p>
+                <div class="flex justify-center flex-wrap gap-x-5 gap-y-4 mb-6">
+                    <div class="flex flex-col items-center gap-2">
+                        <span class="color-swatch-ok" style="background:#4A4E54" title="Dunkelgrau"></span>
+                        <span class="text-[0.65rem] text-charcoal-light">Dunkelgrau</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2">
+                        <span class="color-swatch-ok" style="background:#1F2A44" title="Dunkelblau"></span>
+                        <span class="text-[0.65rem] text-charcoal-light">Dunkelblau</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2">
+                        <span class="color-swatch-ok" style="background:#1A1A1A" title="Schwarz"></span>
+                        <span class="text-[0.65rem] text-charcoal-light">Schwarz</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2">
+                        <span class="color-swatch-ok" style="background:#3B2A20" title="Dunkelbraun"></span>
+                        <span class="text-[0.65rem] text-charcoal-light">Dunkelbraun</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2">
+                        <span class="color-swatch-ok" style="background:#24382C" title="Dunkelgrün"></span>
+                        <span class="text-[0.65rem] text-charcoal-light">Dunkelgrün</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2">
+                        <span class="color-swatch-ok" style="background:#4A1F2B" title="Bordeaux"></span>
+                        <span class="text-[0.65rem] text-charcoal-light">Bordeaux</span>
+                    </div>
+                </div>
+                <p class="text-charcoal-light text-xs text-center italic mb-6">&hellip; und alle anderen dunklen Farbtöne.</p>
+                <div class="bg-olive/8 rounded-lg px-4 py-3 text-center">
+                    <p class="text-charcoal-light text-sm">
+                        <strong class="text-charcoal">Damen:</strong> Farbe ist ausdrücklich willkommen &mdash; je farbenfroher, desto schöner!
+                    </p>
+                </div>
+            </div>
+
+            <!-- NICHT ERWÜNSCHTE FARBEN -->
+            <div class="bg-white p-8 rounded-xl border border-red-200/60 reveal">
+                <div class="flex items-center justify-center gap-2 mb-2">
+                    <span class="material-symbols-outlined text-red-500 text-2xl">do_not_disturb_on</span>
+                    <p class="font-medium text-charcoal text-lg">Am Samstag bitte diese Farben nicht</p>
+                </div>
+                <p class="text-charcoal-light text-sm text-center mb-6">Alles, was in Richtung Weiß geht, bleibt der Braut vorbehalten.</p>
+                <div class="flex justify-center flex-wrap gap-x-5 gap-y-4">
+                    <div class="flex flex-col items-center gap-2">
                         <span class="color-swatch" style="background:#FFFFFF" title="Weiß"></span>
-                        <span class="text-[0.6rem] text-charcoal-light">Weiß</span>
+                        <span class="text-[0.65rem] text-charcoal-light">Weiß</span>
                     </div>
-                    <div class="flex flex-col items-center gap-1">
-                        <span class="color-swatch" style="background:#F5F5DC" title="Beige"></span>
-                        <span class="text-[0.6rem] text-charcoal-light">Beige</span>
+                    <div class="flex flex-col items-center gap-2">
+                        <span class="color-swatch" style="background:#FAF9F6" title="Off-White"></span>
+                        <span class="text-[0.65rem] text-charcoal-light">Off-White</span>
                     </div>
-                    <div class="flex flex-col items-center gap-1">
+                    <div class="flex flex-col items-center gap-2">
+                        <span class="color-swatch" style="background:#FFFFF0" title="Elfenbein"></span>
+                        <span class="text-[0.65rem] text-charcoal-light">Elfenbein</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2">
                         <span class="color-swatch" style="background:#FFFDD0" title="Creme"></span>
-                        <span class="text-[0.6rem] text-charcoal-light">Creme</span>
+                        <span class="text-[0.65rem] text-charcoal-light">Creme</span>
                     </div>
-                    <div class="flex flex-col items-center gap-1">
+                    <div class="flex flex-col items-center gap-2">
+                        <span class="color-swatch" style="background:#F5F5DC" title="Beige"></span>
+                        <span class="text-[0.65rem] text-charcoal-light">Beige</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2">
+                        <span class="color-swatch" style="background:#F3E5D0" title="Ecru"></span>
+                        <span class="text-[0.65rem] text-charcoal-light">Ecru</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2">
                         <span class="color-swatch" style="background:#F7E7CE" title="Champagner"></span>
-                        <span class="text-[0.6rem] text-charcoal-light">Champagner</span>
+                        <span class="text-[0.65rem] text-charcoal-light">Champagner</span>
                     </div>
-                    <div class="flex flex-col items-center gap-1">
+                    <div class="flex flex-col items-center gap-2">
+                        <span class="color-swatch" style="background:#EDE4DA" title="Perlweiß"></span>
+                        <span class="text-[0.65rem] text-charcoal-light">Perlweiß</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2">
+                        <span class="color-swatch" style="background:#E8CFC4" title="Nude / Puder"></span>
+                        <span class="text-[0.65rem] text-charcoal-light">Nude</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2">
+                        <span class="color-swatch" style="background:#D8D8D8" title="Hellgrau"></span>
+                        <span class="text-[0.65rem] text-charcoal-light">Hellgrau</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2">
                         <span class="color-swatch" style="background:#FDFD96" title="Gelb"></span>
-                        <span class="text-[0.6rem] text-charcoal-light">Gelb</span>
+                        <span class="text-[0.65rem] text-charcoal-light">Gelb</span>
                     </div>
                 </div>
             </div>
@@ -600,193 +663,47 @@
         </div>
     </section>
 
-    <!-- ==================== GALERIE ==================== -->
-    <section class="py-28 px-6 bg-ivory">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-12 reveal">
-                <h2 class="text-4xl md:text-5xl font-serif font-light mb-2 leading-tight">Unsere Galerie</h2>
-                <p class="text-charcoal-light">Ein paar unserer liebsten Momente.</p>
-            </div>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 reveal">
-                <div class="col-span-2 row-span-2 img-zoom rounded-xl overflow-hidden">
-                    <img src="images/couple-kiss-bouquet.jpg" alt="Pauli und Philly" class="w-full h-full object-cover">
-                </div>
-                <div class="aspect-square img-zoom rounded-xl overflow-hidden">
-                    <img src="images/bride-cheers.jpg" alt="Braut" class="w-full h-full object-cover">
-                </div>
-                <div class="aspect-square img-zoom rounded-xl overflow-hidden">
-                    <img src="images/couple-restaurant.jpg" alt="Paar im Restaurant" class="w-full h-full object-cover">
-                </div>
-                <div class="aspect-[4/5] img-zoom rounded-xl overflow-hidden">
-                    <img src="images/ceremony-kiss.jpg" alt="Kuss" class="w-full h-full object-cover">
-                </div>
-                <div class="aspect-[4/5] img-zoom rounded-xl overflow-hidden">
-                    <img src="images/couple-walking-laugh.jpg" alt="Spaziergang" class="w-full h-full object-cover object-top">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== GOLD CTA BAND ==================== -->
-    <section class="py-20 px-6 bg-gold">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-4xl md:text-5xl font-serif font-light mb-4 text-white leading-tight">Seid ihr dabei?</h2>
-            <p class="text-white/85 text-lg mb-10 font-light">Bitte gebt uns bis zum 1. Juni 2026 Bescheid.</p>
-            <a href="#rsvp" class="inline-flex bg-charcoal text-white px-10 py-4 rounded-full text-sm font-medium shadow-xl hover:bg-charcoal/90 transition-all hover:-translate-y-0.5 tracking-wider uppercase no-underline">
-                Jetzt zusagen
-            </a>
-        </div>
-    </section>
-
-    <!-- ==================== RSVP FORMULAR ==================== -->
-    <section id="rsvp" class="py-28 px-6 bg-white">
-        <div class="max-w-2xl mx-auto">
-            <div class="text-center mb-12 reveal">
-                <span class="text-gold font-medium tracking-[0.2em] uppercase text-xs mb-4 block">Antwort bis 1. Juni 2026</span>
-                <h2 class="text-4xl md:text-5xl font-serif font-light mb-4 leading-tight">Wir freuen uns auf euch!</h2>
-                <p class="text-charcoal-light">Bitte gebt uns Bescheid, ob ihr dabei seid und was wir für euch planen dürfen.</p>
+    <!-- ==================== ABSAGE ==================== -->
+    <section id="absage" class="py-24 px-6 bg-ivory">
+        <div class="max-w-xl mx-auto">
+            <div class="text-center mb-10 reveal">
+                <span class="text-gold font-medium tracking-[0.2em] uppercase text-xs mb-4 block">Falls es doch nicht klappt</span>
+                <h2 class="text-4xl md:text-5xl font-serif font-light mb-4 leading-tight">Kurzfristige Absage</h2>
+                <p class="text-charcoal-light">
+                    Ihr könnt leider doch nicht dabei sein? Sagt uns bitte kurz Bescheid, damit wir richtig planen können.
+                </p>
             </div>
 
-            <form id="rsvpForm" class="space-y-8 reveal">
-                <!-- Personen -->
-                <div id="personenSection">
-                    <label class="block text-xs font-medium text-charcoal mb-3 tracking-[0.15em] uppercase">Wer kommt? *</label>
-                    <div id="personenList" class="space-y-3">
-                        <div class="person-entry flex gap-3 items-start" data-person="0">
-                            <div class="flex-1">
-                                <input type="text" name="person_name_0" required placeholder="Vor- und Nachname"
-                                       class="w-full rounded-lg border-charcoal/15 bg-ivory focus:ring-gold focus:border-gold px-4 py-3 text-sm font-light">
-                            </div>
-                            <div class="w-40">
-                                <select name="person_food_0" class="w-full rounded-lg border-charcoal/15 bg-ivory focus:ring-gold focus:border-gold text-sm font-light py-3">
-                                    <option value="normal">Normal</option>
-                                    <option value="vegetarisch">Vegetarisch</option>
-                                    <option value="vegan">Vegan</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <button type="button" id="addPersonBtn"
-                            class="mt-3 flex items-center gap-2 text-gold hover:text-gold-dark transition-colors text-sm font-medium cursor-pointer bg-transparent border-none">
-                        <span class="material-symbols-outlined text-lg">person_add</span>
-                        Person hinzufügen
-                    </button>
-                </div>
-
-                <!-- Zusage -->
+            <form id="absageForm" class="bg-white p-8 rounded-xl border border-gold/10 shadow-sm space-y-6 reveal">
                 <div>
-                    <label class="block text-xs font-medium text-charcoal mb-3 tracking-[0.15em] uppercase">Zusage *</label>
-                    <div class="grid grid-cols-2 gap-4">
-                        <label class="flex items-center justify-center gap-3 p-4 border-2 rounded-xl cursor-pointer border-gold/20 hover:bg-gold/5 transition-colors has-[:checked]:border-gold has-[:checked]:bg-gold/5">
-                            <input type="radio" name="attending" value="ja" required class="text-gold focus:ring-gold">
-                            <span class="text-sm">Ich komme / Wir kommen</span>
-                        </label>
-                        <label class="flex items-center justify-center gap-3 p-4 border-2 rounded-xl cursor-pointer border-charcoal/10 hover:bg-charcoal/5 transition-colors has-[:checked]:border-charcoal/30 has-[:checked]:bg-charcoal/5">
-                            <input type="radio" name="attending" value="nein" class="text-charcoal focus:ring-charcoal">
-                            <span class="text-sm">Leider nicht</span>
-                        </label>
-                    </div>
+                    <label for="absageName" class="block text-xs font-medium text-charcoal mb-2 tracking-[0.15em] uppercase">Name *</label>
+                    <input type="text" id="absageName" name="absageName" required placeholder="Vor- und Nachname"
+                           class="w-full rounded-lg border-charcoal/15 bg-ivory focus:ring-gold focus:border-gold px-4 py-3 text-sm font-light">
                 </div>
 
-                <!-- Conditional: Details bei Zusage -->
-                <div id="attendingDetails" class="conditional-section space-y-8">
-
-                    <!-- Tage -->
-                    <div>
-                        <label class="block text-xs font-medium text-charcoal mb-3 tracking-[0.15em] uppercase">An welchen Tagen seid ihr dabei? *</label>
-                        <div class="space-y-3">
-                            <label class="flex items-center gap-3 p-3 border rounded-lg cursor-pointer hover:bg-gold/5 transition-colors">
-                                <input type="checkbox" name="days" value="freitag" class="rounded text-gold focus:ring-gold">
-                                <span class="text-sm">Freitag (Welcome Drink)</span>
-                            </label>
-                            <label class="flex items-center gap-3 p-3 border rounded-lg cursor-pointer hover:bg-gold/5 transition-colors">
-                                <input type="checkbox" name="days" value="samstag" class="rounded text-gold focus:ring-gold">
-                                <span class="text-sm">Samstag (Trauung &amp; Feier)</span>
-                            </label>
-                            <label class="flex items-center gap-3 p-3 border rounded-lg cursor-pointer hover:bg-gold/5 transition-colors">
-                                <input type="checkbox" name="days" value="sonntag" class="rounded text-gold focus:ring-gold">
-                                <span class="text-sm">Sonntag (Brunch &amp; Schifffahrt)</span>
-                            </label>
-                        </div>
-                    </div>
-
-                    <!-- Übernachtung -->
-                    <div>
-                        <label class="block text-xs font-medium text-charcoal mb-3 tracking-[0.15em] uppercase">Übernachtung</label>
-                        <div class="grid grid-cols-2 gap-4">
-                            <div>
-                                <label for="stayFrom" class="block text-xs text-charcoal-light mb-1">Von</label>
-                                <select id="stayFrom" name="stayFrom" class="w-full rounded-lg border-charcoal/15 bg-ivory focus:ring-gold focus:border-gold text-sm font-light">
-                                    <option value="">-- Wählen --</option>
-                                    <option value="freitag">Freitag, 21. Aug</option>
-                                    <option value="samstag">Samstag, 22. Aug</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label for="stayTo" class="block text-xs text-charcoal-light mb-1">Bis</label>
-                                <select id="stayTo" name="stayTo" class="w-full rounded-lg border-charcoal/15 bg-ivory focus:ring-gold focus:border-gold text-sm font-light">
-                                    <option value="">-- Wählen --</option>
-                                    <option value="samstag">Samstag, 22. Aug</option>
-                                    <option value="sonntag">Sonntag, 23. Aug</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Zimmerwunsch -->
-                    <div>
-                        <label class="block text-xs font-medium text-charcoal mb-3 tracking-[0.15em] uppercase">Zimmerwunsch</label>
-                        <div class="grid grid-cols-2 gap-4">
-                            <label class="flex items-center justify-center gap-3 p-3 border-2 rounded-xl cursor-pointer hover:bg-gold/5 transition-colors has-[:checked]:border-gold has-[:checked]:bg-gold/5">
-                                <input type="radio" name="room" value="doppelzimmer" class="text-gold focus:ring-gold">
-                                <span class="text-sm">Doppelzimmer</span>
-                            </label>
-                            <label class="flex items-center justify-center gap-3 p-3 border-2 rounded-xl cursor-pointer hover:bg-gold/5 transition-colors has-[:checked]:border-gold has-[:checked]:bg-gold/5">
-                                <input type="radio" name="room" value="einzelzimmer" class="text-gold focus:ring-gold">
-                                <span class="text-sm">Einzelzimmer</span>
-                            </label>
-                        </div>
-                    </div>
-
-                    <!-- Kinder -->
-                    <div>
-                        <label class="flex items-center gap-3 p-3 border rounded-lg cursor-pointer hover:bg-gold/5 transition-colors">
-                            <input type="checkbox" name="children" value="ja" class="rounded text-gold focus:ring-gold">
-                            <span class="text-sm font-medium">Ich komme mit Kind(ern)</span>
-                        </label>
-                        <div id="childrenInput" class="conditional-input">
-                            <input type="text" name="childrenDetails" placeholder="Anzahl und Alter der Kinder"
-                                   class="w-full rounded-lg border-charcoal/15 bg-ivory focus:ring-gold focus:border-gold px-4 py-3 text-sm font-light">
-                        </div>
-                    </div>
-
-                    <!-- Allergien / Unvertraeglichkeiten -->
-                    <div>
-                        <label for="allergies" class="block text-xs font-medium text-charcoal mb-2 tracking-[0.15em] uppercase">Allergien / Unverträglichkeiten</label>
-                        <input type="text" id="allergies" name="allergies" placeholder="Falls zutreffend, z.B. Laktose, Gluten..."
-                               class="w-full rounded-lg border-charcoal/15 bg-ivory focus:ring-gold focus:border-gold px-4 py-3 text-sm font-light">
-                    </div>
-
-                    <!-- Anmerkungen -->
-                    <div>
-                        <label for="notes" class="block text-xs font-medium text-charcoal mb-2 tracking-[0.15em] uppercase">Anmerkungen</label>
-                        <textarea id="notes" name="notes" rows="3" placeholder="Gibt es sonst noch etwas, das wir wissen sollten?"
-                                  class="w-full rounded-lg border-charcoal/15 bg-ivory focus:ring-gold focus:border-gold px-4 py-3 text-sm font-light resize-y"></textarea>
-                    </div>
+                <div>
+                    <label for="absageEmail" class="block text-xs font-medium text-charcoal mb-2 tracking-[0.15em] uppercase">E-Mail *</label>
+                    <input type="email" id="absageEmail" name="absageEmail" required placeholder="name@beispiel.de"
+                           class="w-full rounded-lg border-charcoal/15 bg-ivory focus:ring-gold focus:border-gold px-4 py-3 text-sm font-light">
                 </div>
 
-                <!-- Submit -->
-                <button type="submit" class="w-full bg-gold hover:bg-gold-dark text-white font-medium py-4 rounded-xl shadow-lg transition-all flex items-center justify-center gap-3 text-sm tracking-[0.15em] uppercase">
-                    <span class="material-symbols-outlined text-xl">send</span>
-                    Antwort absenden
+                <div>
+                    <label for="absageMessage" class="block text-xs font-medium text-charcoal mb-2 tracking-[0.15em] uppercase">Nachricht</label>
+                    <textarea id="absageMessage" name="absageMessage" rows="3" placeholder="Möchtet ihr uns noch etwas mitteilen?"
+                              class="w-full rounded-lg border-charcoal/15 bg-ivory focus:ring-gold focus:border-gold px-4 py-3 text-sm font-light resize-y"></textarea>
+                </div>
+
+                <button type="submit" class="w-full bg-charcoal hover:bg-charcoal/90 text-white font-medium py-4 rounded-xl shadow-lg transition-all flex items-center justify-center gap-3 text-sm tracking-[0.15em] uppercase">
+                    <span class="material-symbols-outlined text-xl">mail</span>
+                    Absage senden
                 </button>
             </form>
 
             <!-- Success Message -->
-            <div id="rsvpSuccess" class="rsvp-success flex-col items-center justify-center text-center py-16 gap-6">
+            <div id="absageSuccess" class="rsvp-success flex-col items-center justify-center text-center py-16 gap-6">
                 <span class="material-symbols-outlined text-olive text-6xl">check_circle</span>
-                <h3 class="text-3xl font-serif font-light mt-4 mb-2">Vielen Dank!</h3>
-                <p class="text-charcoal-light text-lg">Eure Antwort ist bei uns eingegangen. Wir freuen uns auf euch!</p>
+                <h3 class="text-3xl font-serif font-light mt-4 mb-2">Danke für die Nachricht!</h3>
+                <p class="text-charcoal-light text-lg">Schade, dass ihr nicht dabei sein könnt &mdash; wir haben eure Absage erhalten.</p>
             </div>
         </div>
     </section>
@@ -810,6 +727,6 @@
     </footer>
 
     <!-- ==================== JAVASCRIPT ==================== -->
-    <script src="script.js?v=5"></script>
+    <script src="script.js?v=6"></script>
 </body>
 </html>
